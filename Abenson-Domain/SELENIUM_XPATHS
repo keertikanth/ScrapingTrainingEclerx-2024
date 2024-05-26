@@ -1,0 +1,1 @@
+ITEMS=>//div[@class=" gallery-items"]/div[@class=" item-siminia-product-grid-item-3do siminia-product-grid-item "]/descendant:: a

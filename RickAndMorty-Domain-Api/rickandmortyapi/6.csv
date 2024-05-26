@@ -1,0 +1,21 @@
+name,episodes,page_num
+E. Coli,['https://rickandmortyapi.com/api/episode/3'],6
+Donna Gueterman,['https://rickandmortyapi.com/api/episode/21'],6
+Doofus Rick,"['https://rickandmortyapi.com/api/episode/10', 'https://rickandmortyapi.com/api/episode/22']",6
+Doom-Nomitron,['https://rickandmortyapi.com/api/episode/25'],6
+Dr. Glip-Glop,['https://rickandmortyapi.com/api/episode/19'],6
+Dr. Schmidt,['https://rickandmortyapi.com/api/episode/13'],6
+Dr. Wong,"['https://rickandmortyapi.com/api/episode/24', 'https://rickandmortyapi.com/api/episode/41']",6
+Dr. Xenon Bloom,['https://rickandmortyapi.com/api/episode/3'],6
+Duck With Muscles,['https://rickandmortyapi.com/api/episode/15'],6
+Eli,['https://rickandmortyapi.com/api/episode/23'],6
+Eli's Girlfriend,['https://rickandmortyapi.com/api/episode/23'],6
+Eric McMan,['https://rickandmortyapi.com/api/episode/3'],6
+Eric Stoltz Mask Morty,['https://rickandmortyapi.com/api/episode/10'],6
+Ethan,['https://rickandmortyapi.com/api/episode/3'],6
+Ethan,"['https://rickandmortyapi.com/api/episode/16', 'https://rickandmortyapi.com/api/episode/26']",6
+Evil Beth Clone,['https://rickandmortyapi.com/api/episode/5'],6
+Evil Jerry Clone,['https://rickandmortyapi.com/api/episode/5'],6
+Evil Morty,"['https://rickandmortyapi.com/api/episode/10', 'https://rickandmortyapi.com/api/episode/28', 'https://rickandmortyapi.com/api/episode/51']",6
+Evil Rick,['https://rickandmortyapi.com/api/episode/10'],6
+Evil Summer Clone,['https://rickandmortyapi.com/api/episode/5'],6

@@ -1,0 +1,21 @@
+name,episodes,page_num
+Crocubot,['https://rickandmortyapi.com/api/episode/25'],5
+Cronenberg Rick,"['https://rickandmortyapi.com/api/episode/6', 'https://rickandmortyapi.com/api/episode/10']",5
+Cronenberg Morty,"['https://rickandmortyapi.com/api/episode/6', 'https://rickandmortyapi.com/api/episode/10']",5
+Cult Leader Morty,['https://rickandmortyapi.com/api/episode/10'],5
+Cyclops Morty,"['https://rickandmortyapi.com/api/episode/10', 'https://rickandmortyapi.com/api/episode/28']",5
+Cyclops Rick,"['https://rickandmortyapi.com/api/episode/10', 'https://rickandmortyapi.com/api/episode/22', 'https://rickandmortyapi.com/api/episode/28']",5
+Cynthia,['https://rickandmortyapi.com/api/episode/4'],5
+Cynthia,"['https://rickandmortyapi.com/api/episode/8', 'https://rickandmortyapi.com/api/episode/9', 'https://rickandmortyapi.com/api/episode/11', 'https://rickandmortyapi.com/api/episode/25']",5
+Dale,['https://rickandmortyapi.com/api/episode/5'],5
+Daron Jefferson,['https://rickandmortyapi.com/api/episode/14'],5
+David Letterman,['https://rickandmortyapi.com/api/episode/8'],5
+Davin,"['https://rickandmortyapi.com/api/episode/1', 'https://rickandmortyapi.com/api/episode/6']",5
+Diablo Verde,['https://rickandmortyapi.com/api/episode/25'],5
+Diane Sanchez,"['https://rickandmortyapi.com/api/episode/22', 'https://rickandmortyapi.com/api/episode/51']",5
+Dipper and Mabel Mortys,['https://rickandmortyapi.com/api/episode/22'],5
+Tuberculosis,['https://rickandmortyapi.com/api/episode/3'],5
+Gonorrhea,['https://rickandmortyapi.com/api/episode/3'],5
+Hepatitis A,['https://rickandmortyapi.com/api/episode/3'],5
+Hepatitis C,['https://rickandmortyapi.com/api/episode/3'],5
+Bubonic Plague,['https://rickandmortyapi.com/api/episode/3'],5
