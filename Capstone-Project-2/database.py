@@ -50,8 +50,8 @@ def create_product_table():
         instock_quantity INTEGER,
         avg_rating DECIMAL(4, 2),
         ratings_count INTEGER,
-        FOREIGN KEY (id) REFERENCES FLIGHT(id),
-        FOREIGN KEY (ajio_id) REFERENCES FLIGHT(ajio_id))'''
+        FOREIGN KEY (id) REFERENCES PRODUCTS(id),
+        FOREIGN KEY (ajio_id) REFERENCES PRODUCTS(ajio_id))'''
     create_table(cursor, table_nm, schema)
     conn.close()
     print(f"{table_nm} created...")
