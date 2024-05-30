@@ -7,6 +7,7 @@ Due to the use of the internal api, this data for this project is easily crawled
 
 Created two tables  
 A:PRODUCTS points to all-products page (i.e https://www.ajio.com/api/category/830216014) which holds the data for all the products in that category
+
 B:PRODUCT points to information gathered from a single-product page
 
 ## PRODUCTS:
