@@ -1,7 +1,6 @@
 from database import start_connection, DB_NAME
 import pandas as pd
 from datetime import datetime
-from pprint import pprint
 
 
 airlineNames = {
@@ -46,7 +45,8 @@ def start_app():
     print(df)
     airline_opt = get_airline_opt(df)
     show_historic_data(origin_opt, dest_opt, date_opt, fare_type, airline_opt)
-    print("New shell is created".center(50, "#") )
+    date_time = datetime.strftime(datetime.now(), "%Y-%m-%d  %H:%M:%S")
+    print("\n ------- A new instance is created on", date_time, "-------")
     start_app()
 
 def get_airline_opt(df):
@@ -110,7 +110,7 @@ def get_top_five_flights(origin, dest, date, fare_type):
     return cur.fetchall()
 
 def print_prompt_options(options):
-    str_ = ""
+    str_ = "\n"
     for key,value in options.items():
         str_ += f'{value.upper()} -----> {key}'
         str_ += "\n"
@@ -118,7 +118,7 @@ def print_prompt_options(options):
 
 def persist_for_input(prompt="", options={}, prompt_str = ""):
     while True:
-        print(" Enter a valid option or press ctrl+c to exit... ")
+        print("\nEnter a valid option or press ctrl+c to exit... ")
         if not options:
             val = eval(f'{prompt}'.upper()+"_OPTIONS")
         else:
@@ -172,9 +172,12 @@ def parse_historic_data(list_):
         parsed_data = {
             "airline_name":airlineNames.get(data[0]),
             "airline_id": data[1],
-            "updated_at": datetime.fromtimestamp(data[2]),
+            "updated_at":datetime.fromtimestamp(data[2]),
             "price": data[3],
-            "fare_type": data[4]
+            "fare_type": data[4],
+            "origin":data[5],
+            "destination":data[6],
+            "date":data[7]
         }
         parsed_data["updated_at"] = parsed_data.get("updated_at").strftime("%d-%m-%Y-%H:%M")
         all_.append(parsed_data)
@@ -185,7 +188,7 @@ def parse_historic_data(list_):
 def show_historic_data( origin, dest, date, fare_type, flight_unique_id):
     print(flight_unique_id)
     conn, cur = start_connection(DB_NAME)
-    q_str = f"SELECT name, unique_id, FLIGHTS.updated_at, price, fare_type FROM FLIGHTS JOIN FLIGHTSFARE ON FLIGHTS.id=FLIGHTSFARE.flight_id WHERE origin='{origin}' AND destination='{dest}' AND travel_date='{date}' AND fare_type='{fare_type}' AND unique_id='{flight_unique_id}' ORDER BY FLIGHTS.updated_at"
+    q_str = f"SELECT name, unique_id, FLIGHTS.updated_at, price, fare_type, origin, destination, travel_date FROM FLIGHTS JOIN FLIGHTSFARE ON FLIGHTS.id=FLIGHTSFARE.flight_id WHERE origin='{origin}' AND destination='{dest}' AND travel_date='{date}' AND fare_type='{fare_type}' AND unique_id='{flight_unique_id}' ORDER BY FLIGHTS.updated_at"
     cur.execute(q_str)
     list_ = cur.fetchall()
     parse_historic_data(list_)
@@ -196,4 +199,4 @@ if __name__ == '__main__':
     try:
         start_app()
     except:
-        print("You are logged off...")
+        print("\nYou are logged off...")

@@ -29,11 +29,10 @@ def create_url():
 
 def get_data(url):
     options = webdriver.ChromeOptions()
-    driver = webdriver.Chrome(options=options)
-    driver.minimize_window()
+    driver = webdriver.Chrome(options=options)    
     print('driver started')
     driver.get(url)
-    time.sleep(5)
+    time.sleep(7)
     try:
         data = driver.execute_script("return mainData;")
         driver.close()
@@ -67,7 +66,8 @@ def get_all_flights(data, payload):
                         'updated_at':int(time.time())
                     }
                 except:
-                    import ipdb; ipdb.set_trace()
+                    # import ipdb; ipdb.set_trace()
+                    pass
                 unq_name = data.get("name","") + data.get("unique_id","")
                 if unq_name not in unique_:
                     insert_data(cur, data, TABLE_FLIGHTS)
@@ -77,7 +77,7 @@ def get_all_flights(data, payload):
 
 
 def get_unique_flight(cur, data):
-    cur.execute(f"""SELECT id, updated_at from FLIGHTS WHERE unique_id='{data.get("unique_id")}' AND name='{data.get("name")}' ORDER BY updated_at""")
+    cur.execute(f"""SELECT id, updated_at from FLIGHTS WHERE unique_id='{data.get("unique_id")}' AND name='{data.get("name")}' ORDER BY updated_at DESC""")
     for each in cur.fetchall():
         return each
     
