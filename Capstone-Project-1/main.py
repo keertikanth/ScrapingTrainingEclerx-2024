@@ -65,13 +65,14 @@ def get_all_flights(data, payload):
                         'travel_date': travel_date,
                         'updated_at':int(time.time())
                     }
+                    unq_name = data.get("name","") + data.get("unique_id","")
+                    if unq_name not in unique_:
+                        insert_data(cur, data, TABLE_FLIGHTS)
+                        unique_.append(unq_name)
                 except:
                     # import ipdb; ipdb.set_trace()
                     pass
-                unq_name = data.get("name","") + data.get("unique_id","")
-                if unq_name not in unique_:
-                    insert_data(cur, data, TABLE_FLIGHTS)
-                    unique_.append(unq_name)
+                
             conn.commit()
     conn.close()
 
@@ -92,22 +93,25 @@ def create_fare_details_data(data, payload):
         all_scheduled_flights = res.get('fltSchedule', {}).get(schedule_id, "")
         if all_scheduled_flights:
             for each in all_scheduled_flights:
-                data = {
-                    'name': each.get('airline'),
-                    'unique_id': each.get('flno').get('fldisp'),
-                    'travel_date': travel_date,
-        
-                }
-                flight_id, updated_at = get_unique_flight(cur,data)
-                if flight_id:
-                    fd_data = {
-                        "id": str(uuid4()),
-                        "flight_id":flight_id,
-                        "fare_type": each.get("fareId"),
-                        "price":each.get("fareD").get("O", {}).get("ADT").get("tf"),
-                        "updated_at":updated_at
+                try:
+                    data = {
+                        'name': each.get('airline'),
+                        'unique_id': each.get('flno').get('fldisp'),
+                        'travel_date': travel_date,
+            
                     }
-                    insert_data(cur, fd_data, TABLE_FLIGHTS_FARE)
+                    flight_id, updated_at = get_unique_flight(cur,data)
+                    if flight_id:
+                        fd_data = {
+                            "id": str(uuid4()),
+                            "flight_id":flight_id,
+                            "fare_type": each.get("fareId"),
+                            "price":each.get("fareD").get("O", {}).get("ADT").get("tf"),
+                            "updated_at":updated_at
+                        }
+                        insert_data(cur, fd_data, TABLE_FLIGHTS_FARE)
+                except:
+                    pass
         conn.commit()
     conn.close()
 
